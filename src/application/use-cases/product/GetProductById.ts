@@ -1,5 +1,5 @@
-import { Product } from '../../domain/entities/Product';
-import { IProductRepository } from '../../domain/repositories/IProductRepository';
+import { Product } from '@/src/domain/entities/Product';
+import { IProductRepository } from '@/src/domain/repositories/IProductRepository';
 
 export class GetProductById {
     constructor(private readonly productRepository: IProductRepository) { }

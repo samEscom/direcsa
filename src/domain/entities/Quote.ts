@@ -1,4 +1,4 @@
-import { QuoteStatus } from '../enums/QuoteStatus';
+import { QuoteStatus } from '@/src/domain/enums/QuoteStatus';
 import { QuoteItem } from './QuoteItem';
 
 export class Quote {

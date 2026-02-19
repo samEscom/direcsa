@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GetProducts } from '../../application/use-cases/product/GetProducts';
-import { GetProductById } from '../../application/use-cases/product/GetProductById';
-import { CreateProduct } from '../../application/use-cases/product/CreateProduct';
-import { UpdateProduct } from '../../application/use-cases/product/UpdateProduct';
-import { DeleteProduct } from '../../application/use-cases/product/DeleteProduct';
-import { toProductDTO } from '../mappers/product.mapper';
+import { GetProducts } from '@/src/application/use-cases/product/GetProducts';
+import { GetProductById } from '@/src/application/use-cases/product/GetProductById';
+import { CreateProduct } from '@/src/application/use-cases/product/CreateProduct';
+import { UpdateProduct } from '@/src/application/use-cases/product/UpdateProduct';
+import { DeleteProduct } from '@/src/application/use-cases/product/DeleteProduct';
+import { toProductDTO } from '@/src/interfaces/mappers/product.mapper';
 
 export class ProductController {
     constructor(

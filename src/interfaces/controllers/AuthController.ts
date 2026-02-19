@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { RegisterUser } from '../../application/use-cases/user/RegisterUser';
-import { LoginUser } from '../../application/use-cases/user/LoginUser';
-import { toUserDTO } from '../mappers/user.mapper';
+import { RegisterUser } from '@/src/application/use-cases/user/RegisterUser';
+import { LoginUser } from '@/src/application/use-cases/user/LoginUser';
+import { toUserDTO } from '@/src/interfaces/mappers/user.mapper';
 
 export class AuthController {
     constructor(

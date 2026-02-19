@@ -1,6 +1,6 @@
-import { User } from '../../domain/entities/User';
-import { IUserRepository } from '../../domain/repositories/IUserRepository';
-import { Role } from '../../domain/enums/Role';
+import { User } from '@/src/domain/entities/User';
+import { IUserRepository } from '@/src/domain/repositories/IUserRepository';
+import { Role } from '@/src/domain/enums/Role';
 
 export interface RegisterUserDTO {
     name: string;

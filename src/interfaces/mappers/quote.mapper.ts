@@ -1,5 +1,5 @@
-import { Quote } from '../../domain/entities/Quote';
-import { QuoteItem } from '../../domain/entities/QuoteItem';
+import { Quote } from '@/src/domain/entities/Quote';
+import { QuoteItem } from '@/src/domain/entities/QuoteItem';
 
 export interface QuoteItemDTO {
     id: string;

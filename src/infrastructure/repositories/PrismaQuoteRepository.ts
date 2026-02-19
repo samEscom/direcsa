@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client';
-import { Quote } from '../../domain/entities/Quote';
-import { QuoteItem } from '../../domain/entities/QuoteItem';
-import { IQuoteRepository, CreateQuoteData } from '../../domain/repositories/IQuoteRepository';
-import { QuoteStatus } from '../../domain/enums/QuoteStatus';
+import { Quote } from '@/src/domain/entities/Quote';
+import { QuoteItem } from '@/src/domain/entities/QuoteItem';
+import { IQuoteRepository, CreateQuoteData } from '@/src/domain/repositories/IQuoteRepository';
+import { QuoteStatus } from '@/src/domain/enums/QuoteStatus';
 
 export class PrismaQuoteRepository implements IQuoteRepository {
     constructor(private readonly prisma: PrismaClient) { }

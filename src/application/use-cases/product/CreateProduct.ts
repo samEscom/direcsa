@@ -1,5 +1,5 @@
-import { Product } from '../../domain/entities/Product';
-import { IProductRepository, CreateProductData } from '../../domain/repositories/IProductRepository';
+import { Product } from '@/src/domain/entities/Product';
+import { IProductRepository, CreateProductData } from '@/src/domain/repositories/IProductRepository';
 
 export interface CreateProductDTO {
     name: string;

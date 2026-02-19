@@ -1,5 +1,5 @@
-import { Quote } from '../../domain/entities/Quote';
-import { IQuoteRepository, CreateQuoteData } from '../../domain/repositories/IQuoteRepository';
+import { Quote } from '@/src/domain/entities/Quote';
+import { IQuoteRepository, CreateQuoteData } from '@/src/domain/repositories/IQuoteRepository';
 
 export interface CreateQuoteItemDTO {
     productId: string;

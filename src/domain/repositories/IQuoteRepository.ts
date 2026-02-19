@@ -1,4 +1,4 @@
-import { Quote } from '../entities/Quote';
+import { Quote } from '@/src/domain/entities/Quote';
 
 export interface CreateQuoteItemData {
     productId: string;

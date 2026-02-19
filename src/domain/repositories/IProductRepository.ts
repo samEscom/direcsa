@@ -1,4 +1,4 @@
-import { Product } from '../entities/Product';
+import { Product } from '@/src/domain/entities/Product';
 
 export interface CreateProductData {
     name: string;

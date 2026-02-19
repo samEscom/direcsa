@@ -1,10 +1,10 @@
 import { PrismaClient } from '@prisma/client';
-import { Product } from '../../domain/entities/Product';
+import { Product } from '@/src/domain/entities/Product';
 import {
     IProductRepository,
     CreateProductData,
     UpdateProductData,
-} from '../../domain/repositories/IProductRepository';
+} from '@/src/domain/repositories/IProductRepository';
 
 export class PrismaProductRepository implements IProductRepository {
     constructor(private readonly prisma: PrismaClient) { }

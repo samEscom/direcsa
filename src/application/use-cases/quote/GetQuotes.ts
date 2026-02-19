@@ -1,5 +1,5 @@
-import { Quote } from '../../domain/entities/Quote';
-import { IQuoteRepository } from '../../domain/repositories/IQuoteRepository';
+import { Quote } from '@/src/domain/entities/Quote';
+import { IQuoteRepository } from '@/src/domain/repositories/IQuoteRepository';
 
 export class GetQuotes {
     constructor(private readonly quoteRepository: IQuoteRepository) { }

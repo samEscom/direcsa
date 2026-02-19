@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GetQuotes } from '../../application/use-cases/quote/GetQuotes';
-import { GetQuoteById } from '../../application/use-cases/quote/GetQuoteById';
-import { CreateQuote } from '../../application/use-cases/quote/CreateQuote';
-import { toQuoteDTO } from '../mappers/quote.mapper';
-import { verifyToken } from '../../infrastructure/auth/jwt';
-import { Role } from '../../domain/enums/Role';
+import { GetQuotes } from '@/src/application/use-cases/quote/GetQuotes';
+import { GetQuoteById } from '@/src/application/use-cases/quote/GetQuoteById';
+import { CreateQuote } from '@/src/application/use-cases/quote/CreateQuote';
+import { toQuoteDTO } from '@/src/interfaces/mappers/quote.mapper';
+import { verifyToken } from '@/src/infrastructure/auth/jwt';
+import { Role } from '@/src/domain/enums/Role';
 
 export class QuoteController {
     constructor(

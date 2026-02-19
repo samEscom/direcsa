@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
-import { User } from '../../domain/entities/User';
-import { IUserRepository } from '../../domain/repositories/IUserRepository';
-import { Role } from '../../domain/enums/Role';
+import { User } from '@/src/domain/entities/User';
+import { IUserRepository, CreateUserData } from '@/src/domain/repositories/IUserRepository';
+import { Role } from '@/src/domain/enums/Role';
 
 export class PrismaUserRepository implements IUserRepository {
     constructor(private readonly prisma: PrismaClient) { }
@@ -18,7 +18,7 @@ export class PrismaUserRepository implements IUserRepository {
         return this.toDomain(record);
     }
 
-    async create(data: Omit<User, 'id' | 'createdAt' | 'updatedAt'>): Promise<User> {
+    async create(data: CreateUserData): Promise<User> {
         const record = await this.prisma.user.create({
             data: {
                 name: data.name,
