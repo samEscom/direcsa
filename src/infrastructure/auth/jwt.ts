@@ -1,6 +1,5 @@
 import { jwtVerify, SignJWT } from 'jose';
 
-const JWT_SECRET = process.env.JWT_SECRET!;
 const JWT_EXPIRES_IN = '7d';
 
 export interface JwtPayload {
@@ -11,11 +10,16 @@ export interface JwtPayload {
     exp?: number;
 }
 
-export async function signToken(payload: Record<string, unknown>): Promise<string> {
-    if (!JWT_SECRET) {
+function getJwtSecret() {
+    const secret = process.env.JWT_SECRET;
+    if (!secret) {
         throw new Error('JWT_SECRET no está configurado');
     }
-    const secret = new TextEncoder().encode(JWT_SECRET);
+    return new TextEncoder().encode(secret);
+}
+
+export async function signToken(payload: Record<string, unknown>): Promise<string> {
+    const secret = getJwtSecret();
     return new SignJWT(payload)
         .setProtectedHeader({ alg: 'HS256' })
         .setIssuedAt()
@@ -24,10 +28,7 @@ export async function signToken(payload: Record<string, unknown>): Promise<strin
 }
 
 export async function verifyToken(token: string): Promise<JwtPayload> {
-    if (!JWT_SECRET) {
-        throw new Error('JWT_SECRET no está configurado');
-    }
-    const secret = new TextEncoder().encode(JWT_SECRET);
+    const secret = getJwtSecret();
     const { payload } = await jwtVerify(token, secret);
     return payload as unknown as JwtPayload;
 }
