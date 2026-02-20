@@ -15,7 +15,7 @@ export class LoginUser {
     constructor(
         private readonly userRepository: IUserRepository,
         private readonly verifyPassword: (plain: string, hash: string) => Promise<boolean>,
-        private readonly signToken: (payload: Record<string, unknown>) => string,
+        private readonly signToken: (payload: Record<string, unknown>) => Promise<string>,
     ) { }
 
     async execute(dto: LoginUserDTO): Promise<LoginUserResult> {
@@ -33,7 +33,7 @@ export class LoginUser {
             throw new Error('Credenciales inválidas');
         }
 
-        const token = this.signToken({
+        const token = await this.signToken({
             sub: user.id,
             email: user.email,
             role: user.role,

@@ -13,17 +13,17 @@ export class QuoteController {
         private readonly createQuote: CreateQuote,
     ) { }
 
-    private getTokenPayload(req: NextRequest) {
+    private async getTokenPayload(req: NextRequest) {
         const token =
             req.cookies.get('token')?.value ??
             req.headers.get('authorization')?.replace('Bearer ', '');
         if (!token) throw new Error('No autenticado');
-        return verifyToken(token);
+        return await verifyToken(token);
     }
 
     async getAll(req: NextRequest): Promise<NextResponse> {
         try {
-            const payload = this.getTokenPayload(req);
+            const payload = await this.getTokenPayload(req);
             // ADMIN sees all, BUYER sees only their own
             const userId = payload.role === Role.ADMIN ? undefined : payload.sub;
             const quotes = await this.getQuotes.execute(userId);
@@ -37,7 +37,7 @@ export class QuoteController {
 
     async getById(req: NextRequest, id: string): Promise<NextResponse> {
         try {
-            this.getTokenPayload(req);
+            await this.getTokenPayload(req);
             const quote = await this.getQuoteById.execute(id);
             return NextResponse.json({ quote: toQuoteDTO(quote) });
         } catch (error) {
@@ -49,7 +49,7 @@ export class QuoteController {
 
     async create(req: NextRequest): Promise<NextResponse> {
         try {
-            const payload = this.getTokenPayload(req);
+            const payload = await this.getTokenPayload(req);
             const body = await req.json();
             const quote = await this.createQuote.execute({
                 userId: payload.sub,

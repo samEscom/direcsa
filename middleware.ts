@@ -10,7 +10,7 @@ const ADMIN_ONLY_METHODS: Record<string, string[]> = {
     '/api/products': ['POST', 'PUT', 'DELETE'],
 };
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
     const { pathname } = req.nextUrl;
 
     const isProtected =
@@ -35,7 +35,7 @@ export function middleware(req: NextRequest) {
     }
 
     try {
-        verifyToken(token);
+        await verifyToken(token);
         return NextResponse.next();
     } catch {
         if (pathname.startsWith('/api/')) {
