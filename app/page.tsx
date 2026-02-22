@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ContactForm from './components/ContactForm';
 
 export const metadata: Metadata = {
     title: 'DIRECSA — Soluciones Audiovisuales',
@@ -8,9 +9,9 @@ export const metadata: Metadata = {
 export default function LandingPage() {
     return (
         <>
-            {/* Hero */}
+            {/* Hero Section */}
+            {/* ... (keep existing hero) ... */}
             <section className="relative h-[80vh] flex items-center justify-center text-white overflow-hidden">
-                {/* Background Image with Overlay */}
                 <div
                     className="absolute inset-0 z-0"
                     style={{
@@ -122,6 +123,52 @@ export default function LandingPage() {
                                 <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Contacto */}
+            <section className="py-24 px-4 bg-blue-600 text-white overflow-hidden relative">
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+                <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-blue-400 rounded-full blur-3xl opacity-20"></div>
+
+                <div className="max-w-6xl mx-auto relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="text-left">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                                Hablemos de tu próximo proyecto
+                            </h2>
+                            <p className="text-xl text-blue-100 mb-12 max-w-lg leading-relaxed">
+                                Estamos listos para escucharte y diseñar la solución técnica que tu espacio necesita.
+                                Déjanos tus datos y nos pondremos en contacto contigo lo antes posible.
+                            </p>
+
+                            <div className="space-y-8">
+                                <div className="flex items-center gap-6">
+                                    <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-2xl shadow-inner border border-white/20">
+                                        📍
+                                    </div>
+                                    <div>
+                                        <p className="text-blue-200 text-sm font-medium uppercase tracking-wider">Ubicación</p>
+                                        <p className="text-lg font-semibold">Ciudad de México, México</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-6">
+                                    <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-2xl shadow-inner border border-white/20">
+                                        ✉️
+                                    </div>
+                                    <div>
+                                        <p className="text-blue-200 text-sm font-medium uppercase tracking-wider">Correo</p>
+                                        <p className="text-lg font-semibold">direcsa.audio@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="w-full">
+                            <ContactForm />
+                        </div>
                     </div>
                 </div>
             </section>

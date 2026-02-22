@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -73,4 +73,13 @@ model QuoteItem {
 
   productId String
   product   Product @relation(fields: [productId], references: [id])
+}
+
+model ContactMessage {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  description String
+  createdAt   DateTime @default(now())
 }
